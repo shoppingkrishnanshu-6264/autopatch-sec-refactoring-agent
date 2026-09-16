@@ -1,0 +1,11 @@
+{
+  "case_id": "cwe89_002_product_search",
+  "file_path": "app/catalog/search.py",
+  "function_name": "search_products_by_name",
+  "db_driver": "psycopg2 (raw cursor)",
+  "taint_source": "search_term (from query string param 'q')",
+  "taint_sink": "cursor.execute(sql)",
+  "vulnerable_code": "def search_products_by_name(cursor, search_term):\n    sql = \"SELECT id, name, price FROM products WHERE name LIKE '%\" + search_term + \"%'\"\n    cursor.execute(sql)\n    return cursor.fetchall()",
+  "safe_idiom_example": "(none found in codebase)",
+  "existing_tests_summary": "test_search_products_returns_matches, test_search_products_empty_result"
+}

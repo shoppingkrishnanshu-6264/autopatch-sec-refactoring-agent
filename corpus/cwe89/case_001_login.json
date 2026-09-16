@@ -1,0 +1,11 @@
+{
+  "case_id": "cwe89_001_login_lookup",
+  "file_path": "app/auth/repository.py",
+  "function_name": "get_user_by_username",
+  "db_driver": "sqlite3 (raw cursor, no ORM)",
+  "taint_source": "username (from request body, unvalidated)",
+  "taint_sink": "cursor.execute(query)",
+  "vulnerable_code": "def get_user_by_username(cursor, username):\n    query = f\"SELECT id, password_hash FROM users WHERE username = '{username}'\"\n    cursor.execute(query)\n    return cursor.fetchone()",
+  "safe_idiom_example": "def get_order_by_id(cursor, order_id):\n    cursor.execute(\"SELECT * FROM orders WHERE id = ?\", (order_id,))\n    return cursor.fetchone()",
+  "existing_tests_summary": "test_get_user_by_username_found, test_get_user_by_username_not_found (both use an in-memory sqlite fixture)"
+}

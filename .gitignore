@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+models/
+benchmark_results.json
+.DS_Store
