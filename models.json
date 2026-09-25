@@ -1,5 +1,6 @@
 [
   {"name": "codeqwen-7b-4bit", "path": "./models/codeqwen-7b-mlx-4bit"},
+  {"name": "codeqwen-7b-8bit", "path": "./models/codeqwen-7b-mlx-8bit"},
   {"name": "llama3-8b-4bit", "path": "./models/llama3-8b-mlx-4bit"},
   {"name": "deepseek-coder-6.7b-4bit", "path": "./models/deepseek-coder-6.7b-mlx-4bit"}
 ]
